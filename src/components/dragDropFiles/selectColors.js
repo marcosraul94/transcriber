@@ -1,16 +1,16 @@
-import { lightBrown, lightDarkBrown, mediumDarkBrown, darkBrown } from '../../utils/colors';
-
-const selectColors = (isDragHover) => {
+const selectColors = (isDragHover, theme) => {
+    const { primary, secondary } = theme.palette;
+    
     const notHoveringColors = {
-        background: lightBrown,
-        border: lightDarkBrown,
-        icon: mediumDarkBrown
+        background: primary.main,
+        border: primary.dark,
+        icon: secondary.main
     };
-
+    
     const hoveringColors = {
-        background: lightDarkBrown,
-        border: darkBrown,
-        icon: darkBrown
+        background: primary.dark,
+        border: secondary.dark,
+        icon: secondary.dark
     }
    
     return isDragHover ? hoveringColors : notHoveringColors;

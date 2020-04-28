@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { useTheme } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-import IconDragDropFiles from './iconDragDropFiles';
-import InfoDragDropFiles from './infoDragDropFiles';
+import IconDragDropFiles from './icon';
+import InfoDragDropFiles from './info';
 import selectColors from './selectColors';
 import { 
   overrideEventDefaults, 
@@ -22,10 +23,11 @@ const useStyles = makeStyles({
 
 const DragDropFiles = props => {
     const [ isDragHover, setDragHoverState ] = useState(false);
-    
-    const color = selectColors(isDragHover);
+    const theme = useTheme();
+    const color = selectColors(isDragHover, theme);
     const classes = useStyles(color)
 
+    
     useEffect(() => {
         preventDropOnRestWindow();
         return restoreDropOnRestWindow

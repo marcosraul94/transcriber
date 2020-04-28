@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import HeaderGif from './headerGif';
+import HeaderGif from './gif';
 
 
 
@@ -10,7 +10,6 @@ const styles = {
         'width': '100%',
         'display': 'flex',
         'align-items': 'center',
-        // 'justify-content': 'space-between',
     }
 };
 

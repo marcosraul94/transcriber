@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import DragDropFiles from '../dragDropFiles/dragDropFiles';
 import getFiles from './accessFiles';
+import FilesProcessor from '../filesProcessor/filesProcessor';
 
 
 const Manager = props => {
@@ -9,13 +10,14 @@ const Manager = props => {
 
     function handleNewFiles(event) {
         const newFiles = getFiles(event);
-        addFiles(newFiles);
+        console.log(newFiles);
+        addFiles([ ...files, ...newFiles ]);
     }
 
     return (
         <Grid container>
             <DragDropFiles addFiles={ handleNewFiles } />
-            <Grid container item xs={ 12 } sm={ 6 }>  </Grid> // create transcriber and pass the files...
+            <FilesProcessor files={ files }/>
         </Grid>
     );
 }
