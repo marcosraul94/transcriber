@@ -1,4 +1,4 @@
-const selectColors = (isDragHover, theme) => {
+const selectPalette = (isDragHover, theme) => {
     const { primary, secondary } = theme.palette;
     
     const notHoveringColors = {
@@ -17,4 +17,4 @@ const selectColors = (isDragHover, theme) => {
 };
 
 
-export default selectColors;
+export default selectPalette;

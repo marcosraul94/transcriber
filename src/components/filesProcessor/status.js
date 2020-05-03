@@ -23,7 +23,7 @@ const Status = props => {
                 <CircularProgress disableShrink size={ 20 } color="secondary"/>
             </Grid>
         
-            <Button />
+            <Button name={ props.name } />
         </Grid>
     );
 };

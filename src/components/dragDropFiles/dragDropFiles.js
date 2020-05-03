@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { useTheme } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import IconDragDropFiles from './icon';
 import InfoDragDropFiles from './info';
-import selectColors from './selectColors';
+import selectPalette from './color';
+import { FileContext } from '../context/file';
 import { 
   overrideEventDefaults, 
   preventDropOnRestWindow, 
@@ -22,10 +23,11 @@ const useStyles = makeStyles({
 });
 
 const DragDropFiles = props => {
+    const { handleAddNewFiles } = useContext(FileContext);
     const [ isDragHover, setDragHoverState ] = useState(false);
-    const theme = useTheme();
-    const color = selectColors(isDragHover, theme);
-    const classes = useStyles(color)
+    
+    const palette = selectPalette(isDragHover, useTheme());
+    const classes = useStyles(palette)
 
     
     useEffect(() => {
@@ -36,7 +38,7 @@ const DragDropFiles = props => {
     function handleDrop(event) {
       overrideEventDefaults(event);
       setDragHoverState(false);
-      props.addFiles(event);
+      handleAddNewFiles(event);
     }
 
     function handleDrag(event, isDragHover){
@@ -58,7 +60,7 @@ const DragDropFiles = props => {
             onDragLeave={(event) => handleDrag(event, false)}
             onDrop={handleDrop}
         >
-            <IconDragDropFiles color={ color.icon } />
+            <IconDragDropFiles color={ palette.icon } />
             <InfoDragDropFiles/>
         </Grid>
     );

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles, IconButton, Grid } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { FileContext } from '../context/file';
+
 
 const useStyles = makeStyles({
     root: {
@@ -13,11 +15,11 @@ const useStyles = makeStyles({
 
 const Icon = props => {
     const classes = useStyles(props);
-
+    const { handleCancelFile } = useContext(FileContext);
 
     return (
         <Grid item xs={ 6 } className={ classes.root }> 
-            <IconButton aria-label="delete">
+            <IconButton onClick={ (event) => handleCancelFile(props.name) } aria-label="delete">
                 <DeleteIcon color="secondary" fontSize="small" />
             </IconButton>
         </Grid>

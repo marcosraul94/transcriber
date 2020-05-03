@@ -37,11 +37,7 @@ const InfoDragDropFiles = props => {
                 </Typography>
 
                 <Typography align="center">
-                    or
-                </Typography>
-
-                <Typography align="center">
-                    Browse to upload files
+                    to transcribe them!
                 </Typography>
             </div>
             

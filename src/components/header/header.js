@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import HeaderGif from './gif';
+import Gif from './gif';
 
 
 
@@ -18,7 +18,7 @@ const Header = props => {
     const { classes } = props;
     return (
         <Typography variant="h5" className={ classes.root }>
-           <HeaderGif/> Mapuchi audio transcriber 
+           <Gif/> Mapuchi audio transcriber 
         </Typography>
     );
 };

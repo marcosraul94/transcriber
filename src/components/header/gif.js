@@ -10,7 +10,7 @@ const styles = {
 };
 
 
-const HeaderGif = props => {
+const Gif = props => {
     const { classes } = props;
     return (
         <img 
@@ -22,4 +22,4 @@ const HeaderGif = props => {
 };
 
 
-export default withStyles(styles)(HeaderGif);
+export default withStyles(styles)(Gif);

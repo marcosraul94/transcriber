@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import Header from './header';
 import File from './file';
+import { FileContext } from '../context/file';
 
 
 const useStyles = makeStyles({
@@ -18,7 +19,7 @@ const useStyles = makeStyles({
 
 
 const FileProcessor = props => {
-    const { files } = props;
+    const { files } = useContext(FileContext);
     const classes = useStyles(props);
     
     return (
@@ -31,7 +32,7 @@ const FileProcessor = props => {
             className={ classes.root }
         >  
             <Header />
-            { props.files.map( file => <File key={ file.name } name={ file.name } /> ) }
+            { files.map( file => <File key={ file.name } name={ file.name } /> ) }
         </Grid>
     );
 };
